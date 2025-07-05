@@ -1,0 +1,98 @@
+<%- include('./partials/header') %>
+    <div class="main">
+        <div class="toaster-box">
+            
+        </div>
+        <div class="main-a2eD5">
+            <div class="form-container">
+                <div class="title-box">
+                    <textarea name="form-title" class="form-title" placeholder="Form title" rows="1"></textarea>
+                    <textarea name="form-description" class="form-description" placeholder="Form description" rows="1"></textarea>
+                </div>
+                <div class="content-box" data-field-type="single-choice">
+                    <textarea name="" class="question-box" rows="1" placeholder="Question"></textarea>
+                    <div class="answer-section">
+                        <div class="option">
+                            <input name="" type="radio" class="fake-btn" disabled>
+                            <textarea name="" placeholder="Option" rows="1"></textarea>
+                            <span class="material-symbols-rounded del-option-btn" onclick="this.parentNode.remove()">close</span>
+                        </div>
+                    </div>
+                    <div class="content-control-panel">
+                        <div class="panel-V5adk3">
+                            <button type="button" class="add-option add-radio">
+                                <span class="material-symbols-rounded del-option-btn">add</span>
+                                Add option
+                            </button>
+                        </div>
+                        <div class="panel-esf3W">
+                            <div class="panel-3wfes">
+                                <div class="toggle-wrapper">
+                                    <input type="checkbox" id="toggle-sfS2" class="toggle content-required-toggle">
+                                    <label for="toggle-sfS2" class="toggle-label"></label>
+                                </div>
+                                Required
+                            </div>
+                            <button type="button" class="delete-content-box" onclick="this.parentNode.parentNode.parentNode.remove()">
+                                <span class="material-symbols-rounded delete-content-btn">delete</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-Hd3r2">
+            <div class="main-ue2r3">
+                <div class="main-3qQq2">
+                    <div class="main-dscbe2">
+                        <div class="control-box question-adder-box">
+                            <div class="control-header">
+                                Add a new question
+                            </div>
+                            <select name="question-select" class="question-select">
+                                <option value="single-choice" selected>Single choice</option>
+                                <option value="multi-choice">Multiple choices</option>
+                                <option value="single-line">Single line</option>
+                                <option value="multi-line">Multiple lines</option>
+                            </select>
+                            <button type="button" class="control-btn question-add">
+                                Add question
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <button class="create-btn submit-btn">
+                    Create
+                </button>
+            </div>
+        </div>
+        <div class="main-2Dfsa">
+            <div class="control-mini-float-box">
+                <div class="cmfb-header">
+                    Add a new question
+                </div>
+                <div class="cmfb-D32rn">
+                    <select name="question-select" class="question-select-mini">
+                        <option value="single-choice" selected>Single choice</option>
+                        <option value="multi-choice">Multiple choices</option>
+                        <option value="single-line">Single line</option>
+                        <option value="multi-line">Multiple lines</option>
+                    </select>
+                    <button type="button" class="question-add-mini">
+                        Add
+                    </button>
+                </div>
+            </div>
+            <div class="control-mini-3bAd">
+                <div class="control-mini-btn question-add-mini-toggle">
+                    <span class="material-symbols-rounded">add_circle</span>
+                </div>
+            </div>
+            <div class="create-mini-3bQA">
+                <button class="create-btn-mini submit-btn">
+                    Create
+                </button>
+            </div>
+        </div>
+    </div>
+<%- include('./partials/footer') %>

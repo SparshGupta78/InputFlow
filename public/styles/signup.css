@@ -1,0 +1,184 @@
+@import url('primary.css');
+
+.main{
+    background: var(--bg-1);
+    padding: 60px 15px 100px 15px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.border-star{
+    width: 100%;
+    max-width: 1000px;
+}
+
+.container{
+    padding: 15px;
+    background-color: var(--color-2);
+    width: 100%;
+    max-width: 1000px;
+    height: fit-content;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-1);
+}
+
+.container .header{
+    font-size: 1.6rem;
+}
+
+.container .sub-header{
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.error-container, .info-container{
+    padding: 10px;
+    padding-right: 30px;
+    margin-bottom: 15px;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    border-radius: 5px;
+}
+
+.error-container{
+    background-color: rgb(255, 0, 0, 0.2);
+}
+
+.info-container{
+    background-color: var(--color-3);
+}
+
+.error-container .error-close, .info-container .info-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+}
+
+.error-close span, .info-close span{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25em;
+}
+
+.error-close span{
+    color: red;
+}
+
+.info-close span{
+    color: var(--color-5);
+}
+
+.error-container .error-close:hover span, .info-container .info-close:hover span{
+    opacity: 0.5;
+}
+
+.error-container ul, .info-container ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.error-container ul li{
+    font-size: 0.85em;
+    color: red;
+}
+
+.info-container ul li{
+    font-size: 0.85em;
+}
+
+.error-container ul li::before, .info-container ul li::before{
+    content: '• ';
+}
+
+.container form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container div label{
+    width: 100%;
+    font-size: 0.85em;
+}
+
+.container div input[type='text'], .container div input[type='tel'], .container div input[type='password']{
+    width: 100%;
+    border: 1px solid var(--color-3);
+    padding: 5px 10px;
+    font-size: 0.95em;
+    background-color: var(--color-3);
+    border-radius: 3px;
+}
+
+.container div input::placeholder{
+    color: var(--color-5);
+}
+
+.container div input:focus{
+    border: 1px solid var(--color-4);
+    outline: none;
+}
+
+.signup-div{
+    margin-top: 10px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: end;
+}
+
+.signup-btn{
+    padding: 5px 10px;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--color-1);
+    cursor: pointer;
+    @media screen and (min-width: 650px) {
+        max-width: calc(50% - 5px);
+    }
+}
+
+.signup-btn:hover{
+    opacity: 0.8;
+}
+
+.already-account{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9em;
+}
+
+.already-account a{
+    width: fit-content;
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 650px) {
+    .container .input-div2{
+        width: calc(50% - 5px);
+    }
+}

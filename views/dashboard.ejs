@@ -1,0 +1,141 @@
+<%- include('./partials/header') %>
+    <div class="main">
+        <div class="welcome-header">
+            Greetings, <%= user.firstName %> <%= user.lastName %>
+        </div>
+        <div class="create-link">
+            <a href="/create"><span class="material-symbols-rounded">add_notes</span>Create a new form</a>
+        </div>
+        <div class="border-star">
+            <div class="border-star-bg"></div>
+            <div class="border-star-content">
+                <div class="myforms-container">
+                    <div class="myforms-header">
+                        <div class="form-snc2s">My forms</div>
+                        <div class="form-2edqa">
+                            <div class="form-btn form-expand-btn">
+                                <span class="material-symbols-rounded">expand_content</span>
+                            </div>
+                            <div class="form-btn form-view-btn">
+                                <span class="material-symbols-rounded">data_table</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="myforms-content form-content-close">
+                        <% if (forms.length == 0) { %>
+                            <div class="form-bgwss2">
+                                No form found.
+                            </div>
+                        <% } else { %>
+                            <% forms.forEach((form) => { %>
+                                <div class="form-container">
+                                    <div class="form-f3wfcs">
+                                        <div class="form-bwsc3w">
+                                            <span class="material-symbols-rounded">more_vert</span>
+                                        </div>
+                                        <div class="form-vwanj3">
+                                            <div>
+                                                <% if (form.publishedStatus) { %>
+                                                    <form action="/unpublish" method="get">
+                                                        <input name="formId" type="hidden" value="<%= form.formId %>" />
+                                                        <button type="submit"><span class="material-symbols-rounded" style="transform: rotate(180deg);">publish</span>Unpublish</button>
+                                                    </form>
+                                                    
+                                                <% } else { %>
+                                                    <form action="/publish" method="get">
+                                                        <input name="formId" type="hidden" value="<%= form.formId %>" />
+                                                        <button type="submit"><span class="material-symbols-rounded">publish</span>Publish</button>
+                                                    </form>
+                                                    
+                                                <% } %>
+                                            </div>
+                                            <div>
+                                                <form action="/remove" method="get">
+                                                    <input name="formId" type="hidden" value="<%= form.formId %>" />
+                                                    <button type="submit"><span class="material-symbols-rounded">delete</span>Remove</button>
+                                                    
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="/view/<%= form.formId %>">
+                                        <div class="form-nvw3">
+                                        </div>
+                                        <div class="form-23fws">
+                                            <div class="form-bgw4">
+                                                <%= form.title %>
+                                            </div>
+                                            <div class="form-tags">
+                                                <div class="form-tag"><%= form.publishedStatus ? 'Published' : 'Unpublished' %></div>
+                                            </div>
+                                            <div class="form-vsn3">
+                                                Created at <%= new Date(form.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                                            </div>
+                                            <div class="form-vsn3">
+                                                Updated at <%= new Date(form.updatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            <% }) %>
+                            <% forms.forEach((form) => { %>
+                                <div class="form-container-tiles">
+                                    <a href="/view/<%= form.formId %>">
+                                        <div class="form-nvw3-tiles">
+                                            <span class="material-symbols-rounded">article</span>
+                                        </div>
+                                        <div class="form-23fws-tiles">
+                                            <div class="form-bgw4-tiles">
+                                                <%= form.title %>
+                                            </div>
+                                            <div class="form-vw3ws-tiles">
+                                                <div class="form-tags-tiles">
+                                                    <div class="form-tag-tiles"><%= form.publishedStatus ? 'Published' : 'Unpublished' %></div>
+                                                </div>
+                                                <div class="form-vsn3-tiles">
+                                                    Created at <%= new Date(form.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                                                </div>
+                                                <div class="form-vsn3-tiles">
+                                                    Updated at <%= new Date(form.updatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="form-f3wfcs">
+                                        <div class="form-bwsc3w">
+                                            <span class="material-symbols-rounded">more_vert</span>
+                                        </div>
+                                        <div class="form-vwanj3">
+                                            <div>
+                                                <% if (form.publishedStatus) { %>
+                                                    <form action="/unpublish" method="get">
+                                                        <input name="formId" type="hidden" value="<%= form.formId %>" />
+                                                        <button type="submit"><span class="material-symbols-rounded" style="transform: rotate(180deg);">publish</span>Unpublish</button>
+                                                    </form>
+                                                    
+                                                <% } else { %>
+                                                    <form action="/publish" method="get">
+                                                        <input name="formId" type="hidden" value="<%= form.formId %>" />
+                                                        <button type="submit"><span class="material-symbols-rounded">publish</span>Publish</button>
+                                                    </form>
+                                                    
+                                                <% } %>
+                                            </div>
+                                            <div>
+                                                <form action="/remove" method="get">
+                                                    <input name="formId" type="hidden" value="<%= form.formId %>" />
+                                                    <button type="submit"><span class="material-symbols-rounded">delete</span>Remove</button>
+                                                    
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('./partials/footer') %>

@@ -1,0 +1,152 @@
+@import url('primary.css');
+
+.main{
+    background-color: var(--color-1);
+    width: 100%;
+    min-height: 100vh;
+    padding: 65px 15px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--color-2);
+    padding: 20px 25px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-status{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 2em;
+    margin-bottom: 50px;
+}
+
+.form-status .tick-icon{
+    aspect-ratio: 1/1;
+    background: var(--color-3);
+    font-size: 1.25em;
+    padding: 5px;
+    border-radius: 100%;
+    display: flex;
+}
+
+.formId{
+    width: 100%;
+    text-align: right;
+}
+
+.formId span{
+    color: var(--color-5);
+}
+
+.form-publish{
+    padding: 10px 15px;
+    background-color: var(--color-3);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 5px;
+}
+
+.form-publish .publish-header{
+    font-size: 1.35em;
+    font-weight: 500;
+}
+
+.form-publish .publish-content{
+    font-size: 0.95em;
+}
+
+.form-publish .publish-btn{
+    margin-top: 15px;
+}
+
+.form-publish form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-publish .publish-btn input{
+    display: none;
+}
+
+.publish-btn a, .publish-btn button{
+    width: fit-content;
+    font-size: 0.9em;
+    padding: 7px 14px;
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--color-4);
+}
+
+.publish-btn a:hover, .publish-btn button:hover{
+    background-color: var(--color-5);
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .main{
+        align-items: start;
+    }
+
+    .container{
+        margin-top: 30px;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .form-status{
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+        font-size: 1.65em;
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+
+    .form-status .tick-icon{
+        font-size: 1.7em;
+    }
+
+    .formId{
+        font-size: 0.9em;
+    }
+
+    .form-publish{
+        padding: 0;
+        padding-top: 10px;
+        background-color: var(--color-2);
+        gap: 10px;
+    }
+
+    .form-publish .publish-header{
+        font-size: 1.2em;
+    }
+
+    .publish-btn form{
+        flex-direction: column-reverse;
+    }
+
+    .publish-btn a, .publish-btn button{
+        width: 100%;
+    }
+    
+}

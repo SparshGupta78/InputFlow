@@ -1,0 +1,412 @@
+@import url(primary.css);
+
+.main{
+    padding: 60px 15px 15px;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--bg-1);
+}
+
+.border-star{
+    width: 100%;
+}
+
+.welcome-header{
+    margin: 20px 0;
+    font-weight: 400;
+    font-size: 1.65em;
+}
+
+.create-link{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding: 10px 0;
+}
+
+.create-link a{
+    background-color: var(--color-2);
+    border-radius: 7px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.9em;
+}
+
+.create-link a:hover{
+    background-color: var(--color-3);
+}
+
+.myforms-container{
+    width: 100%;
+    background-color: var(--color-2);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-1);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.myforms-container .myforms-header{
+    padding: 0 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.myforms-container .myforms-header .form-snc2s{
+    font-size: 1.2em;
+}
+
+.myforms-container .myforms-header .form-2edqa{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.myforms-container .myforms-header .form-2edqa .form-btn{
+    padding: 5px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.myforms-container .myforms-header .form-2edqa .form-btn:hover{
+    background: var(--color-3);
+}
+
+.myforms-container .myforms-header .form-2edqa .form-btn span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.65em;
+}
+
+.myforms-container .myforms-content{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.myforms-content.form-content-close{
+    max-height: 45vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.myforms-container .myforms-content .form-bgwss2{
+    width: 100%;
+    height: 150px;
+    background-color: var(--color-1);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myforms-container .myforms-content .form-container{
+    padding: 5px;
+    min-width: 100px;
+    max-width: 180px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-3);
+    border-radius: 5px;
+    flex-shrink: 0;
+    position: relative;
+    animation: form-container-ani 0.35s ease forwards;
+}
+
+@keyframes form-container-ani {
+    0%{
+        transform: translate(0, 10px);
+        scale: 0.98;
+        opacity: 0.4;
+    }
+    100%{
+        transform: translate(0, 0);
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+.myforms-container .myforms-content .form-container:hover{
+    background-color: var(--color-4);
+}
+
+.form-container .form-f3wfcs{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: fit-content;
+    height: fit-content;
+    z-index: 10;
+}
+
+.form-container .form-f3wfcs .form-bwsc3w{
+    width: 20px;
+    height: 33px;
+    border-radius: 100%;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+}
+
+.form-f3wfcs .form-bwsc3w span{
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-f3wfcs .form-vwanj3{
+    padding: 3px;
+    position: absolute;
+    top: 6px;
+    right: 19px;
+    border-radius: 5px;
+    background-color: var(--color-2);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+    height: 0;
+    display: none;
+    opacity: 0;
+    transition: all 0.15s ease;
+    z-index: 11;
+}
+
+.form-f3wfcs .form-vwanj3.form-vwanj3-show{
+    display: flex;
+    opacity: 1;
+    height: fit-content;
+}
+
+.form-f3wfcs .form-vwanj3 div form{
+    width: 100%;
+    height: 100%;
+}
+
+.form-f3wfcs .form-vwanj3 div form input{
+    display: none;
+}
+
+.form-f3wfcs .form-vwanj3 div form button{
+    width: 100%;
+    height: 100%;
+    padding: 6px 10px;
+    background-color: var(--color-3);
+    font-size: 0.85em;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.form-f3wfcs .form-vwanj3 div form button:hover{
+    background-color: var(--color-2);
+}
+
+.form-f3wfcs .form-vwanj3 div span{
+    font-size: 1.4em;
+}
+
+.form-container .form-nvw3{
+    width: 100%;
+    aspect-ratio: 3/2;
+    background: url('../media/form-preview.jpg') center center / cover no-repeat;
+    border-radius: 5px;
+}
+
+.form-container .form-23fws{
+    padding: 8px 5px 3px 5px;
+    font-size: 0.9em;
+}
+
+.form-container .form-23fws .form-bgw4, .form-container .form-23fws .form-vsn3{
+    max-height: 21px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.form-container .form-23fws .form-bgw4{
+    margin-bottom: 5px;
+}
+
+.form-container .form-23fws .form-tags{
+    margin-bottom: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+}
+
+.form-container .form-23fws .form-tags .form-tag{
+    background-color: var(--color-2);
+    font-size: 0.65em;
+    padding: 2px 7px;
+    border-radius: 10px;
+}
+
+.form-container .form-23fws .form-vsn3{
+    text-align: right;
+    font-style: italic;
+    color: var(--color-6);
+    font-weight: 300;
+    font-size: 0.8em;
+}
+
+/*Tiles containers*/
+
+.form-container-tiles{
+    padding: 10px;
+    width: 100%;
+    background: var(--color-3);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: form-container-ani 0.35s ease forwards;
+    display: none;
+}
+
+.form-container-tiles:hover{
+    background: var(--color-4);
+}
+
+.form-container-tiles .form-nvw3-tiles, .form-container-tiles .form-f3wfcs, .form-container-tiles .form-f3wfcs .form-bwsc3w{
+    height: 24px;
+    width: 24px;
+}
+
+.form-container-tiles .form-nvw3-tiles span, .form-container-tiles .form-f3wfcs .form-bwsc3w span{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container-tiles a{
+    width: calc(100% - 24px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-container-tiles .form-23fws-tiles{
+    width: calc(100% - 24px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-container-tiles .form-23fws-tiles .form-bgw4-tiles{
+    font-size: 0.9em;
+    width: 50%;
+    min-width: 50px;
+    max-height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.form-container-tiles .form-23fws-tiles .form-vw3ws-tiles{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-vw3ws-tiles .form-tags-tiles .form-tag-tiles{
+    font-size: 0.65em;
+    background: var(--color-2);
+    padding: 2px 7px;
+    border-radius: 10px;
+}
+
+.form-vw3ws-tiles .form-vsn3-tiles{
+    width: fit-content;
+    font-size: 0.7em;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--color-6);
+}
+
+.form-container-tiles .form-f3wfcs{
+    cursor: pointer;
+}
+
+.form-container-tiles .form-f3wfcs .form-vwanj3{
+    top: 50%;
+    transform: translate(0, -50%);
+    max-width: 100%;
+    right: 34px;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 550px) {
+
+    .form-container .form-23fws{
+        font-size: 0.8em;
+    }
+
+    .form-container-tiles .form-23fws-tiles .form-bgw4-tiles{
+        width: 100%;
+    }
+
+    .form-vw3ws-tiles .form-vsn3-tiles{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+
+    .welcome-header{
+        font-size: 1.25em;
+    }
+
+    .myforms-container .myforms-content{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .myforms-container .myforms-content .form-container{
+        width: calc(50% - 5px);
+        flex-grow: 0;
+    }
+
+    .form-container .form-23fws .form-bgw4{
+        font-size: 1.05em;
+    }
+
+    .form-container .form-23fws .form-vsn3{
+        font-size: 0.85em;
+    }
+
+}

@@ -1,0 +1,28 @@
+<%- include('./partials/header') %>
+<div class="main">
+    <div class="container">
+        <div class="form-status">
+            <span class="material-symbols-rounded tick-icon">check</span>
+            Form has been created successfully
+        </div>
+        <div class="formId">
+            Form ID: <span><% if (formId) { %><%= formId %><% } else { %>Form ID not available<% } %></span>
+        </div>
+        <div class="form-publish">
+            <div class="publish-header">
+                This form is currently unpublished.
+            </div>
+            <div class="publish-content">
+                Please publish the form to make it accessible to other users.
+            </div>
+            <div class="publish-btn">
+                <form action="/publish" method="get">
+                    <a href="/dashboard">Return to Dashboard</a>
+                    <input name="formId" type="text" value="<%= formId %>" />
+                    <button type="submit" <% if (!formId) { %>disabled="true"<% } %>>Publish Form</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('./partials/footer') %>

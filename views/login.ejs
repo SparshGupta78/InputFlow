@@ -1,0 +1,47 @@
+<%- include('./partials/header') %>
+    <div class="main">
+        <div class="border-star">
+            <div class="border-star-bg"></div>
+            <div class="border-star-content">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="cont1">
+                            <div class="header">InputFlow</div>
+                            <div class="sub-header">Enter username and password to login</div>
+                        </div>
+                        <div class="cont2">
+                            <% if (error.length > 0) { %>
+                                <div class="error-container">
+                                    <div class="error-close" onclick="this.parentNode.remove()">
+                                        <span class="material-symbols-rounded">close</span>
+                                    </div>
+                                    <ul>
+                                        <% error.forEach(function(msg) { %>
+                                            <li><%= msg %></li>
+                                        <% }) %>
+                                    </ul>
+                                </div>
+                            <% } %>
+                            <form action="/login" method="post">
+                                <div>
+                                    <label for="username">Username</label>
+                                    <input type="text" name="username" id="username" placeholder="Enter your username" required />
+                                </div>
+                                <div>
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" placeholder="Enter your password" required />
+                                </div>
+                                <div class="login-div">
+                                    <input type="submit" value="Login" class="login-btn" />
+                                </div>     
+                            </form>
+                            <span class="new-account">
+                                Don't have an account? <a href="/signup">Sign Up</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('./partials/footer') %>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Google icon -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <!-- Local links -->
+    <% if (style.length > 0) { %>
+        <% style.forEach((sty) => { %>
+            <link rel="stylesheet" href="/styles/<%= sty %>.css" />
+        <% }) %>
+    <% } %>
+    <link rel="icon" href="/favicon.ico" />
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo"><a href="/">
+            InputFlow
+        </a></div>
+        <% if (isLoggedIn) { %>
+            <div class="nav-links">
+                <div class="lsl">
+                    <a href="/">
+                        <span class="material-symbols-rounded">home</span>
+                        Home
+                    </a>
+                </div>
+                <div class="lsl">
+                    <a href="/dashboard">
+                        <span class="material-symbols-rounded">analytics</span>
+                        Dashboard
+                    </a>
+                </div>
+            </div>
+        <% } %>
+        <div class="login-signup">
+            <% if (!isLoggedIn) { %>
+                <% if (!style.includes('login')) { %>
+                    <div class="lsl">
+                        <a href="/login">
+                            <span class="material-symbols-rounded">login</span>
+                            Login
+                        </a>
+                    </div>
+                <% } %>
+                <% if (!style.includes('signup')) { %>
+                    <div class="lsl">
+                        <a href="/signup">
+                            <span class="material-symbols-rounded">person_add</span>
+                            Signup
+                        </a>
+                    </div>
+                <% } %>
+            <% } else { %>
+                <div class="account-wrapper" tabindex="0">
+                    <span class="material-symbols-rounded">person</span>
+                    Account
+                </div>
+                <div class="account-container click-outside">
+                    <div class="account-info">
+                        <div class="account-dsiacs">
+                            <div class="account-edit"><a href="/dashboard/update">
+                                <span class="material-symbols-rounded account-edit-btn">edit</span>
+                            </a></div>
+                            <span class="material-symbols-rounded account-dsiacs-person">person</span>
+                        </div>
+                        <div class="account-sdvuja">
+                            <div style="font-size: 1.2em;"><%= user.firstName %> <%= user.lastName %></div>
+                            <div style="font-size: 0.85em;"><%= user.username %></div>
+                            <div style="font-size: 0.85em;"><%= user.phoneNo %></div>
+                        </div>
+                    </div>
+                    <div class="account-logout"><a href="/logout">
+                        <span class="material-symbols-rounded">logout</span>
+                        Logout
+                    </a></div>
+                </div>
+            <% } %>
+        </div>
+        <div class="nav-open"></div>
+    </div>
+    <div class="navbar-mini">   
+        <div class="account-info-mini">
+            <div class="account-dsiacs-mini">
+                <% if (isLoggedIn) { %>
+                    <div class="account-edit-mini"><a href="/dashboard/update">
+                        <span class="material-symbols-rounded account-edit-btn-mini">edit</span>
+                    </a></div>
+                <% } %>
+                <span class="material-symbols-rounded account-dsiacs-mini-person">person</span>
+            </div>
+            <% if (isLoggedIn) { %>
+                <div class="account-sdvuja-mini">
+                    <div style="font-size: 1.3em;"><%= user.firstName %> <%= user.lastName %></div>
+                    <div style="font-size: 0.95em;"><%= user.username %></div>
+                    <div style="font-size: 0.95em;"><%= user.phoneNo %></div>
+                    <div class="account-logout-mini"><a href="/logout">
+                        <span class="material-symbols-rounded">logout</span>
+                        Logout
+                    </a></div>
+                </div>
+            <% } else { %>
+                <div class="account-vdnvd">
+                    <a href="/login">
+                        <span class="material-symbols-rounded">login</span>
+                        Login
+                    </a>
+                    <a href="/signup">
+                        <span class="material-symbols-rounded">person_add</span>
+                        Signup
+                    </a>
+                </div>
+            <% } %>
+        </div>
+        <% if (isLoggedIn) { %>
+            <div class="nav-links-mini">
+                <a class="h23H3uh" href="/">
+                    <div>
+                        <span class="material-symbols-rounded">home</span>
+                        Home
+                    </div>
+                    <span class="material-symbols-rounded">chevron_right</span>
+                </a>
+                <a class="h23H3uh" href="/dashboard">
+                    <div>
+                        <span class="material-symbols-rounded">analytics</span>
+                        Dashboard
+                    </div>
+                    <span class="material-symbols-rounded">chevron_right</span>
+                </a>
+            </div>
+        <% } %>
+    </div>

@@ -1,0 +1,81 @@
+@import url('primary.css');
+
+.main1{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.background-player{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.background-player video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main1{
+    position: relative;
+}
+
+.main1-content{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: max(20px, 3.5%);
+    padding-bottom: 10vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.main1-content .main1-title1{
+    color: var(--color-2);
+    font-size: 3em;
+}
+
+.main1-content .main1-title2{
+    color: var(--color-2);
+    font-size: 1.5em;
+}
+
+.main2{
+    width: 100%;
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 1080px) {
+
+    .main1 .main1-title1{
+        font-size: 2.5em;
+    }
+
+    .main1 .main1-title2{
+        font-size: 1.5em;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+
+    .main1-content{
+        gap: 2.5em;
+    }
+
+    .main1-content .main1-title1{
+        font-size: 1.8em;
+    }
+
+    .main1-content .main1-title2{
+        font-size: 1.2rem;
+    }
+
+}

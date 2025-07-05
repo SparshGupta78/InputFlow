@@ -1,0 +1,71 @@
+<%- include('./partials/header') %>
+    <div class="main">
+        <div class="border-star">
+            <div class="border-star-bg"></div>
+            <div class="border-star-content">
+                <div class="container">
+                    <div class="header">
+                        Sign Up
+                    </div>
+                    <div class="sub-header">
+                        Create an account to continue
+                    </div>
+                    <% if (error.length > 0) { %>
+                        <div class="error-container">
+                            <div class="error-close" onclick="this.parentNode.remove()">
+                                <span class="material-symbols-rounded">close</span>
+                            </div>
+                            <ul>
+                                <% error.forEach(function(msg) { %>
+                                    <li><%= msg %></li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                    <% } %>
+                    <div class="info-container">
+                        <div class="info-close" onclick="this.parentNode.remove()">
+                            <span class="material-symbols-rounded">close</span>
+                        </div>
+                        <ul>
+                            <li>First name must be at least 2 characters long and contain only letters and spaces.</li>
+                            <li>Username must be 3-12 characters long and can include only letters and numbers.</li>
+                            <li>Password must be at least 8 characters long, with at least one lowercase, one uppercase, one digit, and one special character [!@#$%^&*()_+-=].</li>
+                        </ul>
+                    </div>
+                    <form action="/signup" method="post">
+                        <div class="input-div2">
+                            <label for="firstName">First name</label>
+                            <input type="text" name="firstName" id="firstName" value="<%= oldInput.firstName %>" placeholder="Your first name" required />
+                        </div>
+                        <div class="input-div2">
+                            <label for="lastName">Last name</label>
+                            <input type="text" name="lastName" id="lastName" value="<%= oldInput.lastName %>" placeholder="Your last name" />
+                        </div>
+                        <div>
+                            <label for="phoneNo">Phone number</label>
+                            <input type="tel" name="phoneNo" id="phoneNo" value="<%= oldInput.phoneNo %>" placeholder="Your phone number" required />
+                        </div>
+                        <div>
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" value="<%= oldInput.username %>" placeholder="Make your username" required />
+                        </div>
+                        <div class="input-div2">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Make your password" required />
+                        </div>
+                        <div class="input-div2">
+                            <label for="repassword">Re-password</label>
+                            <input type="password" name="repassword" id="repassword" placeholder="Re-enter your password" required />
+                        </div>
+                        <div class="signup-div">
+                            <input type="submit" value="Sign Up" class="signup-btn" />
+                        </div>
+                    </form>
+                    <span class="already-account">
+                        Already have an account? <a href="/login">Login</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('./partials/footer') %>

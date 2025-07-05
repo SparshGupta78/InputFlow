@@ -1,0 +1,226 @@
+@import url('primary.css');
+
+.main{
+    width: 100%;
+    min-height: 100vh;
+    padding: 55px 15px 15px;
+    background: var(--bg-1);
+}
+
+.main textarea{
+    width: 100%;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+    background-color: var(--color-3);
+}
+
+.main textarea::placeholder{
+    color: var(--color-5);
+}
+
+.main .main-b3qa{
+    margin: 5px 0 10px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .main-b3qa .main-nav{
+    width: fit-content;
+    background-color: var(--color-2);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.main .main-b3qa .main-nav .main-nav-btn{
+    padding: 7px 10px;
+    font-size: 0.85em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.main .main-b3qa .main-nav .main-nav-btn.main-nav-btn-active{
+    background-color: var(--color-3);
+}
+
+/*main-b32wvs*/
+
+.main-b32wvs{
+    width: 100%;
+}
+
+.main-a2eD5 form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-info{
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-1);
+    border-radius: 7px;
+    position: relative;
+}
+
+.form-info .form-info-close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    aspect-ratio: 1/1;
+    display: flex;
+    cursor: pointer;
+}
+
+.form-info .form-info-close span{
+    font-size: 1.2em;
+    color: var(--color-5);
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-info .form-info-close:hover span{
+    color: var(--color-4);
+}
+
+.form-info ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-info ul li{
+    font-size: 0.85em;
+    color: var(--color-5);
+}
+
+.main-a2eD5 .form-container{
+    padding-bottom: 100px;
+    width: 100%;
+    max-width: 750px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-container .title-box, .form-container .content-box{
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-2);
+    box-shadow: var(--box-shadow-1);
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-title{
+    font-size: 1.75em;
+    @media screen and (max-width: 425px) {
+        font-size: 1.5em;
+    }
+}
+
+.form-description{
+    background-color: transparent;
+    font-size: 0.9em;
+}
+
+.question span{
+    color: var(--color-5);
+}
+
+.answer-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.answer-section .option{
+    padding: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-3);
+    border-radius: 5px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.answer-section .option *{
+    cursor: pointer;
+}
+
+.answer-section .option input[type='radio'], .answer-section .option input[type='checkbox'] {
+    margin: 6px 0 6px 10px;
+    width: 15px;
+    height: 15px;
+    outline: none;
+    accent-color: var(--color-2);
+}
+
+.answer-section .option label{
+    padding: 6px 10px 6px 0;
+    width: calc(100% - 15px);
+    font-size: 0.9em;
+}
+
+.content-clear-selection{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.content-clear-selection .clear-selection{
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: var(--color-7);
+    cursor: pointer;
+}
+
+.content-clear-selection .clear-selection:hover{
+    color: var(--color-5);
+}
+
+.submit-btn-box{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.submit-btn-box .submit-btn{
+    width: 50%;
+    background-color: var(--color-1);
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    box-shadow: var(--box-shadow-1);
+    cursor: pointer;
+    @media screen and (max-width: 500px) {
+        width: 100%;
+    }
+}
+
+.submit-btn-box .submit-btn:hover{
+    background-color: var(--color-3);
+}
+
+.main-feszs{
+    width: 100%;
+    display: none;
+}

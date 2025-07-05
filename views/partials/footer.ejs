@@ -1,0 +1,8 @@
+    <% if (script.length > 0) { %>
+        <% script.forEach((scr) => { %>
+            <script src="/scripts/<%= scr %>.js"></script>
+        <% }) %>
+    <% } %>
+    <script src="/scripts/primary.js"></script>
+</body>
+</html>

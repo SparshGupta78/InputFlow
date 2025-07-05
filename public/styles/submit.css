@@ -1,0 +1,31 @@
+@import url('primary.css');
+
+.main{
+    background: var(--bg-1);
+    padding: 80px 15px 15px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    width: 100%;
+    max-width: 750px;
+    height: fit-content;
+    background-color: var(--color-3);
+    border-radius: 7px;
+    box-shadow: var(--box-shadow-1);
+    padding: 10px;
+}
+
+.hxd-1{
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.hxd-2{
+    width: fit-content;
+    margin-top: 10px;
+    font-size: 0.9em;
+    text-decoration: underline;
+}
