@@ -1,78 +1,154 @@
 <%- include('./partials/header') %>
     <div class="main">
-        <div class="main-b3qa">
-            <div class="main-nav">
-                <div class="main-nav-btn view-form-nav-btn main-nav-btn-active">
-                    View form
-                </div>
-                <div class="main-nav-btn view-res-nav-btn">
-                    View responses
+        <% if (form && isOwner) { %>
+            <div class="main-b3qa">
+                <div class="main-nav">
+                    <div class="main-nav-btn view-form-nav-btn main-nav-btn-active">
+                        View form
+                    </div>
+                    <div class="main-nav-btn view-res-nav-btn">
+                        View responses
+                    </div>
                 </div>
             </div>
-        </div>
+        <% } %>
         <div class="main-b32wvs">
             <div class="main-a2eD5">
-                <form action="/submit" method="post">
-                    <input type="hidden" name="formId" value="<%= form.formId %>" />
-                    <div class="form-container">
-                        <div class="form-info">
-                            <div class="form-info-close" onclick="this.parentNode.remove()">
-                                <span class="material-symbols-rounded">close</span>
+                <% if (form)  { %>
+                    <% if (!isOwner) { %><form action="/submit" method="post"><% } %>
+                        <input type="hidden" name="formId" value="<%= form.formId %>" />
+                        <div class="form-container">
+                            <div class="form-info">
+                                <div class="form-info-close" onclick="this.parentNode.remove()">
+                                    <span class="material-symbols-rounded">close</span>
+                                </div>
+                                <ul>
+                                    <li>Asterisk(*) denote required fields.</li>
+                                </ul>
                             </div>
-                            <ul>
-                                <li>Asterisk(*) denote required fields.</li>
-                            </ul>
+                            <div class="user-detail">
+                                    Logged in as <span><%= user.username %></span>
+                                    <input type="hidden" name="user" value="<%= user.username %>" />
+                            </div>
+                            <div class="title-box">
+                                <div class="form-title"><%= form.title %></div>
+                                <% if (form.description) { %>
+                                    <div class="form-description"><%= form.description %></div>
+                                <% } %>
+                            </div>
+                            <% form.formData.forEach(contentBox => { %>
+                                <div class="content-box" data-field-type="<%= contentBox.type %>">
+                                    <div class="question"><% if (contentBox.required) { %><span>* </span><% } %><%= contentBox.question %></div>
+                                    <% if (contentBox.type === 'single-line') { %>
+                                        <textarea name="<%= contentBox.questionId %>" class="single-line-ans" placeholder="Your answer" rows="1" <%= contentBox.required ? 'required' : '' %> <%= isOwner ? 'disabled' : '' %>></textarea>
+                                    <% } else if (contentBox.type === 'multi-line') { %>
+                                        <textarea name="<%= contentBox.questionId %>" class="multi-line-ans" placeholder="Your answer" rows="2" <%= contentBox.required ? 'required' : '' %> <%= isOwner ? 'disabled' : '' %>></textarea>
+                                    <% } else if (contentBox.type === 'single-choice') { %>
+                                        <div class="answer-section">
+                                            <% contentBox.options.forEach((option, index) => { %>
+                                                <% const inputId = `${contentBox.questionId}-option-${index}` %>
+                                                <div class="option">
+                                                    <input id="<%= inputId %>" name="<%= contentBox.questionId %>" type="radio" value="<%= option %>" class="content-click-btn" <%= contentBox.required ? 'required' : '' %> <%= isOwner ? 'disabled' : '' %> />
+                                                    <label for="<%= inputId %>"><%= option %></label>
+                                                </div>
+                                            <% }) %>
+                                        </div>
+                                    <% } else if (contentBox.type === 'multi-choice') { %>
+                                        <div class="answer-section">
+                                            <% contentBox.options.forEach((option, index) => { %>
+                                                <% const inputId = `${contentBox.questionId}-option-${index}`; %>
+                                                <div class="option">
+                                                    <input id="<%= inputId %>" name="<%= contentBox.questionId %>" type="checkbox" value="<%= option %>" class="content-click-btn" <%= contentBox.required ? 'required' : '' %> <%= isOwner ? 'disabled' : '' %> />
+                                                    <label for="<%= inputId %>"><%= option %></label>
+                                                </div>
+                                            <% }) %>
+                                        </div>
+                                    <% } %>
+                                    <% if (contentBox.type === 'single-choice' || contentBox.type === 'multi-choice') { %>
+                                        <div class="content-clear-selection">
+                                            <button type="button" class="clear-selection" <%= isOwner ? 'disabled' : '' %>>Clear selection</button>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            <% }) %>
+                            <div class="submit-btn-box">
+                                <button type="<%= !isOwner ? 'submit' : 'button' %>" class="submit-btn" <% if (isOwner) { %>disabled<% } %>>Submit</button>
+                            </div>
                         </div>
-                        <div class="title-box">
-                            <div class="form-title"><%= form.title %></div>
-                            <% if (form.description) { %>
-                                <div class="form-description"><%= form.description %></div>
+                    <% if (!isOwner) { %></form><% } %>
+                <% } else { %>
+                    No form to show
+                <% } %>
+            </div>
+            <% if (form && isOwner) { %>
+                <div class="main-feszs">
+                    <div class="main-bwszv">
+                        <div class="main-lbnkd">
+                            <div class="main-vnses">
+                                <%= responseData.length %> <%= responseData.length === 0 ? 'Response' : 'Responses'%>
+                            </div>
+                            <a href="/view/<%= form.formId %>/analysis" class="main-fwa2q">
+                                <span class="material-symbols-rounded">finance</span> View analysis
+                            </a>
+                        </div>
+                        <div class="main-ibln">
+                            <div class="main-svxnj">
+                                <span class="response-box-counter">0</span> — <%= responseData.length %>
+                            </div>
+                            <div class="main-zbnd">
+                                <button class="response-box-left" disabled>
+                                    <span class="material-symbols-rounded">arrow_back_ios_new</span>
+                                </button>
+                                <button class="response-box-right" disabled>
+                                    <span class="material-symbols-rounded">arrow_forward_ios</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="main-vbazv">
+                            <% if (responseData.length === 0) { %>
+                                <div class="main-vwsds">
+                                    <% if (publishedStatus) { %>
+                                        <span>No responses yet.</span>
+                                    <% } else { %>
+                                        <form action="/publish" method="get">
+                                            <span>Publish form to accept responses.</span>
+                                            <input name="formId" type="hidden" value="<%= form.formId %>" />
+                                            <button type="submit">Publish form</button>
+                                        </form>
+                                    <% } %>
+                                </div>
+                            <% } else { %>
+                                <% responseData.forEach((res, index) => { %>
+                                    <div class="response-box" data-index="<%= index + 1 %>">
+                                        <div class="response-header">
+                                            <div class="rh-sbxv">
+                                                Response by <%= res.responseUser %>
+                                            </div>
+                                            <div class="rh-ktjg">
+                                                Submission at <%= new Date(res.createdAt).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }) %>
+
+                                            </div>
+                                        </div>
+                                        <div class="rh-wbazv">
+                                            <% res.responseForm.forEach(pair => { %>
+                                                <div class="rh-Vzdxs">
+                                                    <div class="rh-question">
+                                                        <%= pair.question %>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="rh-answer">
+                                                        <%= pair.answer %>
+                                                    </div>
+                                                </div>
+                                            <% }) %>
+                                        </div>
+                                    </div>
+                                <% }) %>
                             <% } %>
                         </div>
-                        <% form.formData.forEach(contentBox => { %>
-                            <div class="content-box" data-field-type="<%= contentBox.type %>">
-                                <div class="question"><% if (contentBox.required) { %><span>* </span><% } %><%= contentBox.question %></div>
-                                <% if (contentBox.type === 'single-line') { %>
-                                    <textarea name="<%= contentBox.questionId %>" class="single-line-ans" placeholder="Your answer" rows="1" <%= contentBox.required ? 'required' : '' %>></textarea>
-                                <% } else if (contentBox.type === 'multi-line') { %>
-                                    <textarea name="<%= contentBox.questionId %>" class="multi-line-ans" placeholder="Your answer" rows="2" <%= contentBox.required ? 'required' : '' %>></textarea>
-                                <% } else if (contentBox.type === 'single-choice') { %>
-                                    <div class="answer-section">
-                                        <% contentBox.options.forEach((option, index) => { %>
-                                            <% const inputId = `${contentBox.questionId}-option-${index}` %>
-                                            <div class="option">
-                                                <input id="<%= inputId %>" name="<%= contentBox.questionId %>" type="radio" value="<%= option %>" class="content-click-btn" <%= contentBox.required ? 'required' : '' %> />
-                                                <label for="<%= inputId %>"><%= option %></label>
-                                            </div>
-                                        <% }) %>
-                                    </div>
-                                <% } else if (contentBox.type === 'multi-choice') { %>
-                                    <div class="answer-section">
-                                        <% contentBox.options.forEach((option, index) => { %>
-                                            <% const inputId = `${contentBox.questionId}-option-${index}`; %>
-                                            <div class="option">
-                                                <input id="<%= inputId %>" name="<%= contentBox.questionId %>" type="checkbox" value="<%= option %>" class="content-click-btn" <%= contentBox.required ? 'required' : '' %> />
-                                                <label for="<%= inputId %>"><%= option %></label>
-                                            </div>
-                                        <% }) %>
-                                    </div>
-                                <% } %>
-                                <% if (contentBox.type === 'single-choice' || contentBox.type === 'multi-choice') { %>
-                                    <div class="content-clear-selection">
-                                        <button type="button" class="clear-selection">Clear selection</button>
-                                    </div>
-                                <% } %>
-                            </div>
-                        <% }) %>
-                        <div class="submit-btn-box">
-                            <button type="submit" class="submit-btn">Submit</button>
-                        </div>
                     </div>
-                </form>
-            </div>
-            <div class="main-feszs">
-                form responses
-            </div>
+                </div>
+            <% } %>
         </div>
     </div>
 <%- include('./partials/footer') %>

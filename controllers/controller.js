@@ -1,4 +1,5 @@
 const Form = require("../models/formSchema")
+const Response = require("../models/responseSchema")
 const User = require("../models/userSchema")
 
 exports.homeController = (req, res) => {
@@ -203,44 +204,123 @@ exports.removeController = async (req, res) => {
     return res.redirect('/dashboard')
 }
 
-exports.formViewController = (req, res) => {
-    let formId = req.params.formId
-    Form
-    .findOne({formId})
-    .then(form => {
-        if (form) {
+exports.formViewController = async (req, res) => {
+    if (!req.session.isLoggedIn) {
+        return res.render('loginNotFound', {
+            title: 'Login not found', 
+            style: ['loginNotFound'], 
+            script: ['navbar'], 
+            isLoggedIn: req.session.isLoggedIn, 
+            user: req.session.user
+        })
+    }
+
+    const formId = req.params.formId
+
+    try {
+        const form = await Form.findOne({ formId })
+
+        if (!form) {
             return res.render('viewForm', {
-                title: form.title + ' - InputFlow', 
-                style: ['viewForm'], 
-                script: ['navbar', 'viewForm'], 
-                isLoggedIn: req.session.isLoggedIn, 
+                title: 'Form not found - InputFlow',
+                style: ['viewForm'],
+                script: ['navbar', 'viewForm'],
+                isLoggedIn: req.session.isLoggedIn,
                 user: req.session.user,
-                form,
-                isOwner: true
-            })
-        } else {
-            return res.render('viewForm', {
-                title: form.title + ' - InputFlow', 
-                style: ['viewForm'], 
-                script: ['navbar', 'viewForm'], 
-                isLoggedIn: req.session.isLoggedIn, 
-                user: req.session.user,
-                form,
+                form: null,
                 isOwner: false
             })
         }
-    })
-    .catch(err => {
+
+        let isOwner = false
+        let publishedStatus = false
+
+        if (req.session.isLoggedIn) {
+            const user = await User.findOne({ username: req.session.user.username })
+            if (user && user.createdForm.includes(formId)) isOwner = true
+            if (user && user.publishedForm.includes(formId)) publishedStatus = true
+        }
+
+        const formData = form.formData
+        const responses = await Response.find({ formId })
+
+        let responseCont = []
+
+        responses.forEach(response => {
+            const responseUser = response.user || 'Anonymous'
+            const createdAt = response.createdAt
+            const responseData = response.responseData
+
+            let responseForm = []
+
+            formData.forEach(contentBox => {
+                const qId = contentBox.questionId
+                if (qId in responseData) {
+                    responseForm.push({
+                        question: contentBox.question,
+                        answer: responseData[qId]
+                    })
+                } else {
+                    responseForm.push({
+                        question: contentBox.question,
+                        answer: ''
+                    })
+                }
+            })
+
+            responseCont.push({ responseUser, responseForm, createdAt })
+        })
+
         return res.render('viewForm', {
-            title: `Form: ${formId}`, 
-            style: ['viewForm'], 
-            script: ['navbar', 'viewForm'], 
-            isLoggedIn: req.session.isLoggedIn, 
+            title: form.title + ' - InputFlow',
+            style: ['viewForm'],
+            script: ['navbar', 'viewForm'],
+            isLoggedIn: req.session.isLoggedIn,
             user: req.session.user,
-            form: {},
+            form,
+            isOwner,
+            responseData: responseCont, 
+            publishedStatus
+        })
+
+    } catch (err) {
+        return res.render('viewForm', {
+            title: 'Error loading form - InputFlow',
+            style: ['viewForm'],
+            script: ['navbar', 'viewForm'],
+            isLoggedIn: req.session.isLoggedIn,
+            user: req.session.user,
+            form: null,
             isOwner: false
         })
-    })
+    }
+}
+
+exports.submitController = (req, res) => {
+    const formId = req.body.formId
+    delete req.body.formId
+
+    const user = req.body.user
+    delete req.body.user
+
+    const responseData = req.body
+
+    const newResponse = new Response({ formId, user, responseData })
+
+    newResponse.save()
+        .then(() => {
+            return res.render('submit', {
+                title: 'Form submitted',
+                style: ['submit'],
+                script: ['navbar'],
+                isLoggedIn: req.session.isLoggedIn,
+                user: req.session.user,
+                formId
+            })
+        })
+        .catch(err => {
+            return res.status(500).send('Something went wrong')
+        })
 }
 
 exports.pageNotFoundController = (req, res) => {
@@ -250,17 +330,5 @@ exports.pageNotFoundController = (req, res) => {
         script: ['navbar'], 
         isLoggedIn: req.session.isLoggedIn, 
         user: req.session.user
-    })
-}
-
-exports.submitController = (req, res) => {
-    let responseData = req.body
-    return res.render('submit', {
-        title: 'Form submitted', 
-        style: ['submit'], 
-        script: ['navbar'], 
-        isLoggedIn: req.session.isLoggedIn, 
-        user: req.session.user,
-        formId: responseData.formId
     })
 }

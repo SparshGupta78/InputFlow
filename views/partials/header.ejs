@@ -23,22 +23,28 @@
         <div class="logo"><a href="/">
             InputFlow
         </a></div>
-        <% if (isLoggedIn) { %>
-            <div class="nav-links">
-                <div class="lsl">
-                    <a href="/">
-                        <span class="material-symbols-rounded">home</span>
-                        Home
-                    </a>
-                </div>
+        <div class="nav-links">
+            <div class="lsl">
+                <a href="/">
+                    <span class="material-symbols-rounded">home</span>
+                    Home
+                </a>
+            </div>
+            <% if (isLoggedIn) { %>
                 <div class="lsl">
                     <a href="/dashboard">
                         <span class="material-symbols-rounded">analytics</span>
                         Dashboard
                     </a>
                 </div>
+                <div class="lsl">
+                    <a href="/create">
+                        <span class="material-symbols-rounded">add_notes</span>
+                        Create
+                    </a>
+                </div>
+            <% } %>
             </div>
-        <% } %>
         <div class="login-signup">
             <% if (!isLoggedIn) { %>
                 <% if (!style.includes('login')) { %>
@@ -118,15 +124,15 @@
                 </div>
             <% } %>
         </div>
-        <% if (isLoggedIn) { %>
-            <div class="nav-links-mini">
-                <a class="h23H3uh" href="/">
-                    <div>
-                        <span class="material-symbols-rounded">home</span>
-                        Home
-                    </div>
-                    <span class="material-symbols-rounded">chevron_right</span>
-                </a>
+        <div class="nav-links-mini">
+            <a class="h23H3uh" href="/">
+                <div>
+                    <span class="material-symbols-rounded">home</span>
+                    Home
+                </div>
+                <span class="material-symbols-rounded">chevron_right</span>
+            </a>
+            <% if (isLoggedIn) { %>
                 <a class="h23H3uh" href="/dashboard">
                     <div>
                         <span class="material-symbols-rounded">analytics</span>
@@ -134,6 +140,13 @@
                     </div>
                     <span class="material-symbols-rounded">chevron_right</span>
                 </a>
+                <a class="h23H3uh" href="/create">
+                    <div>
+                        <span class="material-symbols-rounded">add_notes</span>
+                        Create
+                    </div>
+                    <span class="material-symbols-rounded">chevron_right</span>
+                </a>
+            <% } %>
             </div>
-        <% } %>
     </div>

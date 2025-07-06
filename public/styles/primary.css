@@ -287,9 +287,10 @@ a{
     padding: 65px 15px 15px;
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     height: 100vh;
     width: 100vw;
+    max-width: 450px;
     background: var(--color-1);
     z-index: 99;
     transform: translate(100%);
@@ -300,6 +301,7 @@ a{
 
 .navbar-mini.nav-active{
     transform: translate(0%);
+    box-shadow: 0 0 70px 5px rgba(0, 0, 0, 0.5);
 }
 
 .account-info-mini{
@@ -457,7 +459,7 @@ a{
     z-index: 2;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
 
     .nav-links, .login-signup, .account-wrapper{
         display: none;

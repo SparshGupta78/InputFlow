@@ -37,3 +37,39 @@ document.querySelectorAll('.content-box').forEach(contentBox => {
         })
     }
 })
+
+let responseBoxes = document.querySelectorAll('.response-box')
+let responseBoxCounter = document.querySelector('.response-box-counter')
+let responseBoxLeft = document.querySelector('.response-box-left')
+let responseBoxRight = document.querySelector('.response-box-right')
+
+let currentIndex = 0
+
+if (responseBoxes.length > 0) {
+    responseBoxes[0].classList.add('response-box-active')
+    responseBoxCounter.innerHTML = '1'
+    responseBoxLeft.disabled = true
+    responseBoxRight.disabled = responseBoxes.length === 1
+}
+
+responseBoxRight.addEventListener('click', () => {
+    if (currentIndex < responseBoxes.length - 1) {
+        responseBoxes[currentIndex].classList.remove('response-box-active')
+        currentIndex++
+        responseBoxes[currentIndex].classList.add('response-box-active')
+        responseBoxCounter.innerHTML = `${currentIndex + 1}`
+    }
+    responseBoxLeft.disabled = currentIndex === 0
+    responseBoxRight.disabled = currentIndex === responseBoxes.length - 1
+})
+
+responseBoxLeft.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        responseBoxes[currentIndex].classList.remove('response-box-active')
+        currentIndex--
+        responseBoxes[currentIndex].classList.add('response-box-active')
+        responseBoxCounter.innerHTML = `${currentIndex + 1}`
+    }
+    responseBoxLeft.disabled = currentIndex === 0
+    responseBoxRight.disabled = currentIndex === responseBoxes.length - 1
+})
