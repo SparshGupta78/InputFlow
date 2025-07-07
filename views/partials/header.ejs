@@ -19,6 +19,105 @@
     <title><%= title %></title>
 </head>
 <body>
+    <div class="loader">
+        <div class="logo-cont-1">
+            <div class="loader-d-1">
+                <div class="loader-d-6"></div>
+                <div class="loader-d-7">
+                    <div class="loader-d-9"></div>
+                    <div class="loader-d-10"></div>
+                </div>
+                <div class="loader-d-8"></div>
+            </div>
+            <div class="logo-cont-2">
+                <div class="logo-cont-3">
+                    <div class="logo-cont-4">
+                        <div class="loader-d-2"></div>
+                    </div>
+                    <div class="logo-cont-5">
+                        <div class="loader-d-3"></div>
+                    </div>
+                </div>
+                <div class="logo-cont-6">
+                    <div class="loader-d-4"></div>
+                </div>
+                <div class="logo-cont-7">
+                    <div class="loader-d-5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-mini">
+        <div class="nav-mini-sec-1">
+            <div class="account-info-mini">
+                <div class="account-dsiacs-mini">
+                    <% if (isLoggedIn) { %>
+                        <div class="account-edit-mini"><a href="/dashboard/update">
+                            <span class="material-symbols-rounded account-edit-btn-mini">edit</span>
+                        </a></div>
+                    <% } %>
+                    <span class="material-symbols-rounded account-dsiacs-mini-person">person</span>
+                </div>
+                <% if (isLoggedIn) { %>
+                    <div class="account-sdvuja-mini">
+                        <div style="font-size: 1.2em; margin-left: 10px;"><%= user.firstName %> <%= user.lastName %></div>
+                        <div style="font-size: 0.85em; margin-left: 10px;"><%= user.username %></div>
+                        <div style="font-size: 0.85em; margin-left: 10px;"><%= user.phoneNo %></div>
+                        <div class="account-logout-mini"><a href="/logout">
+                            <span class="material-symbols-rounded">logout</span>
+                            Logout
+                        </a></div>
+                    </div>
+                <% } else { %>
+                    <div class="account-vdnvd">
+                        <a href="/login">
+                            <span class="material-symbols-rounded">login</span>
+                            Login
+                        </a>
+                        <a href="/signup">
+                            <span class="material-symbols-rounded">person_add</span>
+                            Signup
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+            <div class="nav-links-mini">
+                <a class="h23H3uh" href="/">
+                    <div>
+                        <span class="material-symbols-rounded">home</span>
+                        Home
+                    </div>
+                    <span class="material-symbols-rounded">chevron_right</span>
+                </a>
+                <% if (isLoggedIn) { %>
+                    <a class="h23H3uh" href="/dashboard">
+                        <div>
+                            <span class="material-symbols-rounded">analytics</span>
+                            Dashboard
+                        </div>
+                        <span class="material-symbols-rounded">chevron_right</span>
+                    </a>
+                    <a class="h23H3uh" href="/create">
+                        <div>
+                            <span class="material-symbols-rounded">add_notes</span>
+                            Create
+                        </div>
+                        <span class="material-symbols-rounded">chevron_right</span>
+                    </a>
+                <% } %>
+                <a class="h23H3uh" href="/developer">
+                    <div>
+                        <span class="material-symbols-rounded">code_blocks</span>
+                        About developer
+                    </div>
+                    <span class="material-symbols-rounded">chevron_right</span>
+                </a>
+            </div>
+        </div>
+        <div class="nav-mini-sec-2">
+            Code by Sparsh
+        </div>
+    </div>
     <div class="navbar">
         <div class="logo"><a href="/">
             InputFlow
@@ -44,6 +143,12 @@
                     </a>
                 </div>
             <% } %>
+            <div class="lsl">
+                <a href="/developer">
+                    <span class="material-symbols-rounded">code_blocks</span>
+                    About developer
+                </a>
+            </div>
             </div>
         <div class="login-signup">
             <% if (!isLoggedIn) { %>
@@ -90,63 +195,4 @@
             <% } %>
         </div>
         <div class="nav-open"></div>
-    </div>
-    <div class="navbar-mini">   
-        <div class="account-info-mini">
-            <div class="account-dsiacs-mini">
-                <% if (isLoggedIn) { %>
-                    <div class="account-edit-mini"><a href="/dashboard/update">
-                        <span class="material-symbols-rounded account-edit-btn-mini">edit</span>
-                    </a></div>
-                <% } %>
-                <span class="material-symbols-rounded account-dsiacs-mini-person">person</span>
-            </div>
-            <% if (isLoggedIn) { %>
-                <div class="account-sdvuja-mini">
-                    <div style="font-size: 1.3em;"><%= user.firstName %> <%= user.lastName %></div>
-                    <div style="font-size: 0.95em;"><%= user.username %></div>
-                    <div style="font-size: 0.95em;"><%= user.phoneNo %></div>
-                    <div class="account-logout-mini"><a href="/logout">
-                        <span class="material-symbols-rounded">logout</span>
-                        Logout
-                    </a></div>
-                </div>
-            <% } else { %>
-                <div class="account-vdnvd">
-                    <a href="/login">
-                        <span class="material-symbols-rounded">login</span>
-                        Login
-                    </a>
-                    <a href="/signup">
-                        <span class="material-symbols-rounded">person_add</span>
-                        Signup
-                    </a>
-                </div>
-            <% } %>
-        </div>
-        <div class="nav-links-mini">
-            <a class="h23H3uh" href="/">
-                <div>
-                    <span class="material-symbols-rounded">home</span>
-                    Home
-                </div>
-                <span class="material-symbols-rounded">chevron_right</span>
-            </a>
-            <% if (isLoggedIn) { %>
-                <a class="h23H3uh" href="/dashboard">
-                    <div>
-                        <span class="material-symbols-rounded">analytics</span>
-                        Dashboard
-                    </div>
-                    <span class="material-symbols-rounded">chevron_right</span>
-                </a>
-                <a class="h23H3uh" href="/create">
-                    <div>
-                        <span class="material-symbols-rounded">add_notes</span>
-                        Create
-                    </div>
-                    <span class="material-symbols-rounded">chevron_right</span>
-                </a>
-            <% } %>
-            </div>
     </div>

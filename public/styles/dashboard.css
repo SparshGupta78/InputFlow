@@ -137,7 +137,9 @@
 }
 
 .myforms-container .myforms-content .form-container:hover{
-    background-color: var(--color-4);
+    @media screen and (min-width: 426px) {
+        background-color: var(--color-4);
+    }
 }
 
 .form-container .form-f3wfcs{
@@ -290,7 +292,9 @@
 }
 
 .form-container-tiles:hover{
-    background: var(--color-4);
+    @media screen and (min-width: 426px) {
+        background: var(--color-4);
+    }
 }
 
 .form-container-tiles .form-nvw3-tiles, .form-container-tiles .form-f3wfcs, .form-container-tiles .form-f3wfcs .form-bwsc3w{

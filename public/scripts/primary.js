@@ -1,3 +1,11 @@
+// LOADER
+
+let loader = document.querySelector('.loader');
+
+window.addEventListener('load', () => {
+    loader.style.display = 'none'
+})
+
 const navOpen = document.querySelector('.nav-open')
 const navbarMini = document.querySelector('.navbar-mini')
 navOpen.addEventListener('click', () => {
@@ -21,3 +29,22 @@ if (accountWrapper) {
         }
     })
 }
+
+let oneFocus = (colls) => {
+    colls.forEach(coll => {
+        coll.addEventListener('mouseenter', () => {
+            colls.forEach(col => col.style.color = 'var(--color-4)')
+            coll.style.color = 'var(--color-9)'
+        })
+
+        coll.addEventListener('mouseleave', () => {
+            colls.forEach(col => col.style.color = 'var(--color-9)')
+        })
+    })
+}
+
+let fsmais = document.querySelectorAll('.footer-social-media a ion-icon')
+oneFocus(fsmais)
+
+let footerLinks = document.querySelectorAll('.footer-link a')
+oneFocus(footerLinks)

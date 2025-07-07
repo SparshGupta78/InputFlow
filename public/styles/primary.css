@@ -84,6 +84,148 @@ a{
     transition: all 0.2s ease-in-out;
 }
 
+/*LOADER*/
+
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.logo-cont-1{
+    width: 315px;
+    height: 250px;
+    display: flex;
+    gap: 10px;
+    scale: 0.5;
+}
+
+.logo-cont-2{
+    width: 84px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo-cont-3{
+    height: 55px;
+    width: 100%;
+    display: flex;
+}
+
+.logo-cont-4{
+    width: 65%;
+    height: 100%;
+}
+
+.logo-cont-5{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+
+.logo-cont-6{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: end;
+}
+
+.logo-cont-7{
+    height: 93px;
+    width: 100%;
+    padding-top: 25px;
+}
+
+.loader-d-1, .loader-d-2, .loader-d-3, .loader-d-4, .loader-d-5{
+    animation: fadeInOut 2.5s infinite ease-in-out;
+    opacity: 1;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.loader-d-1{
+    height: 100%;
+    width: 221px;
+    display: flex;
+    flex-direction: column;
+    animation-delay: 0s;
+}
+
+.loader-d-1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.loader-d-2{
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--color-8);
+    animation-delay: 0.5s;
+}
+
+.loader-d-3{
+    height: 20px;
+    aspect-ratio: 1/1;
+    background-color: var(--color-4);
+    animation-delay: 1s;
+}
+
+.loader-d-4{
+    height: 55px;
+    width: 55px;
+    background-color: var(--color-6);
+    animation-delay: 1.5s;
+}
+
+.loader-d-5{
+    height: 20px;
+    width: 20px;
+    background-color: var(--color-2);
+    animation-delay: 2s;
+}
+
+.loader-d-6, .loader-d-8{
+    width: calc(100% - 55px);
+    height: 55px;
+    background-color: var(--color-9);
+}
+
+.loader-d-8{
+    margin-left: 55px;
+}
+
+.loader-d-7{
+    width: 100%;
+    height: calc(100% - 110px);
+    display: flex;
+    justify-content: space-between;
+}
+
+.loader-d-9, .loader-d-10{
+    height: 100%;
+    width: 55px;
+    background-color: var(--color-9);
+}
+
 /*Navbar*/
 
 .navbar{
@@ -132,6 +274,7 @@ a{
     justify-content: center;
     align-items: center;
     gap: 4px;
+    font-size: 0.9em;
 }
 
 .navbar .lsl a:hover{
@@ -283,6 +426,8 @@ a{
     border-radius: 20px;
 }
 
+/*Mini Navbar*/
+
 .navbar-mini{
     padding: 65px 15px 15px;
     position: fixed;
@@ -296,12 +441,34 @@ a{
     transform: translate(100%);
     transition: all 0.4s ease;
     display: none;
+    justify-content: space-between;
     flex-direction: column;
+    gap: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .navbar-mini.nav-active{
     transform: translate(0%);
     box-shadow: 0 0 70px 5px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-mini.nav-active + .navbar{
+    background-color: var(--color-2);
+}
+
+.nav-mini-sec-1{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-mini-sec-2{
+    padding: 15px 10px;
+    color: var(--color-4);
+    font-size: 0.9em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .account-info-mini{
@@ -354,14 +521,16 @@ a{
 }
 
 .account-logout-mini a{
+    margin-top: 10px;
     width: 100%;
-    padding: 5px 10px;
+    padding: 6px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3px;
     background-color: var(--color-2);
     border-radius: 20px;
+    font-size: 0.9em;
 }
 
 .account-logout-mini a span{
@@ -410,14 +579,18 @@ a{
 }
 
 .nav-links-mini a div{
+    font-size: 0.9em;
     display: flex;
     align-items: center;
-    gap: 5px;   
+    gap: 5px; 
 }
 
 .nav-links-mini a span{
-    font-size: 1.35em;
+    font-size: 1.5em;
     color: var(--color-5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .border-star {
@@ -459,7 +632,7 @@ a{
     z-index: 2;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
 
     .nav-links, .login-signup, .account-wrapper{
         display: none;
@@ -473,4 +646,236 @@ a{
         display: flex;
     }
 
+}
+
+/*footer*/
+
+.footer{
+    padding: 50px 30px 0;
+    background-color: var(--color-1);
+    z-index: 100;
+}
+
+.footer .footer-sbvfgv{
+    border-top: 1px solid var(--color-3);
+    border-bottom: 1px solid var(--color-3);
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 900px) {
+        flex-direction: column;
+    }
+}
+
+.footer-1{
+    padding: 50px 15px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        padding: 50px 15px 20px 15px;
+    }
+}
+
+.footer-1 .footer-hbezs{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-1 .footer-hbezs .footer-srnxb{
+    width: 130px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    background: radial-gradient(var(--color-2) 50%, var(--color-1));
+    display: flex;
+}
+
+.footer-1 .footer-hbezs .footer-srnxb img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 100%;
+}
+
+.footer-1 .footer-hbezs .footer-nabzd{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-1 .footer-hbezs .footer-nabzd .footer-nzbdxc{
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.footer-1 .footer-hbezs .footer-nabzd .footer-nzbdf{
+    font-size: 1.2em;
+    color: var(--color-5);
+}
+
+.footer-1 .footer-bunjt{
+    display: flex;
+    padding-top: 25px;
+    gap: 25px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.footer-1 .footer-bunjt .footer-social-media a{
+    aspect-ratio: 1/1;
+    display: flex;
+    font-size: 1.8em;
+}
+
+.footer-1 .footer-bunjt .footer-social-media a:hover{
+    transform: translate(0, -1px);
+}
+
+.footer-2{
+    height: 100%;
+    padding: 50px 15px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        padding: 20px 15px 50px 15px;
+    }
+}
+
+.footer-2 .footer-haegd{
+    display: flex;
+    align-items: center;
+    font-size: 2.5em;
+    font-weight: 500;
+}
+
+.footer-2 .footer-haegd span{
+    font-size: 1.35em;
+    color: var(--color-5);
+}
+
+.footer-2 .footer-bzdvsd{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-2 .footer-bzdvsd div div{
+    font-size: 1em;
+    text-transform: uppercase;
+    color: var(--color-5);
+}
+
+.footer-2 .footer-bzdvsd div a{
+    font-size: 1.1em;
+    border-bottom: 3px solid var(--color-3);
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-2 .footer-bzdvsd div a span{
+    width: 10px;
+    font-size: 1.5em;
+    color: var(--color-4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-2 .footer-bzdvsd div a:hover span{
+    color: var(--color-6);
+}
+
+.footer-2 .footer-bzdvsd div a{
+    position: relative;
+}
+
+.footer-2 .footer-bzdvsd div a::before{
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--color-6);
+    transition: all 0.3s ease;
+}
+
+.footer-2 .footer-bzdvsd div a:hover::before{
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.footer .footer-bavfdz{
+    padding: 40px 15px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media screen and (max-width: 425px) {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+.footer .footer-bavfdz .footer-mtfvm{
+    font-size: 1.15em;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    @media screen and (max-width: 425px) {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.footer .footer-bavfdz .footer-mtfvm .footer-link{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer .footer-bavfdz .footer-mtfvm .footer-link::before{
+    content: '•';
+    color: var(--color-4);
+    width: fit-content;
+    font-size: 1.5em;
+}
+
+.footer .footer-bavfdz .footer-mtfvm .footer-link a:hover{
+    transform: translate(0, -1px);
+}
+
+.footer .footer-bavfdz .footer-jpinf{
+    font-size: 1em;
+    color: var(--color-5);
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 550px) {
+    .footer{
+        padding: 50px 10px 0;
+    }
+
+    .footer-1 .footer-hbezs .footer-nabzd .footer-nzbdxc{
+        font-size: 1.5em;
+    }
+
+    .footer-1 .footer-hbezs .footer-nabzd .footer-nzbdf{
+        font-size: 1em;
+    }
+
+    .footer-2 .footer-haegd{
+        font-size: 1.65em;
+    }
+
+    .footer-2 .footer-bzdvsd div a{
+        font-size: 0.95em;
+    }
 }
