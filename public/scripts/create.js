@@ -106,7 +106,7 @@ document.querySelectorAll('.content-box').forEach(panel_V5adk3_control)
 //Adding new question controls
 
 let contentBoxHTML = (fieldType, answerBody = '', panel_V5adk3_body = '') => {
-    const toggleId = randomIdGenerator(4)
+    const toggleId = randomIdGenerator1(4)
     return `
         <div class="content-box" data-field-type="${fieldType}">
             <textarea name="" class="question-box" rows="1" placeholder="Question"></textarea>
