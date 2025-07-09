@@ -210,7 +210,9 @@ exports.loginSubmitController = [
 
                 req.session.isLoggedIn = true
                 req.session.user = user
-                return res.redirect('/dashboard')
+                req.session.save(() => {
+                    res.redirect('/dashboard')
+                })
             })
         })
     }

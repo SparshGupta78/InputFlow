@@ -3,10 +3,10 @@
         <div class="welcome-header">
             Greetings, <%= user.firstName %> <%= user.lastName %>
         </div>
-        <div class="create-link">
+        <div class="create-link animate-block">
             <a href="/create"><span class="material-symbols-rounded">add_notes</span>Create a new form</a>
         </div>
-        <div class="border-star">
+        <div class="border-star animate-block">
             <div class="border-star-bg"></div>
             <div class="border-star-content">
                 <div class="myforms-container">
@@ -28,7 +28,7 @@
                             </div>
                         <% } else { %>
                             <% forms.forEach((form) => { %>
-                                <div class="form-container">
+                                <div class="form-container  animate-block">
                                     <div class="form-f3wfcs">
                                         <div class="form-bwsc3w">
                                             <span class="material-symbols-rounded">more_vert</span>
@@ -79,7 +79,7 @@
                                 </div>
                             <% }) %>
                             <% forms.forEach((form) => { %>
-                                <div class="form-container-tiles">
+                                <div class="form-container-tiles  animate-block">
                                     <a href="/view/<%= form.formId %>">
                                         <div class="form-nvw3-tiles">
                                             <span class="material-symbols-rounded">article</span>

@@ -1,7 +1,7 @@
     <div class="footer">
         <div class="footer-sbvfgv">
             <div class="footer-1">
-                <div class="footer-hbezs">
+                <div class="footer-hbezs animate-block">
                     <div class="footer-srnxb">
                         <img src="/media/myImage-mini.png" alt="">
                     </div>
@@ -14,7 +14,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-bunjt">
+                <div class="footer-bunjt animate-block">
                     <div class="footer-social-media">
                         <a href="https://www.instagram.com/theguptasparsh/">
                             <ion-icon name="logo-instagram"></ion-icon>
@@ -38,10 +38,10 @@
                 </div>
             </div>
             <div class="footer-2">
-                <div class="footer-haegd">
+                <div class="footer-haegd animate-block">
                     Get in touch<span class="material-symbols-rounded">chevron_forward</span>
                 </div>
-                <div class="footer-bzdvsd">
+                <div class="footer-bzdvsd animate-block">
                     <div>
                         <div>Email</div>
                         <a href="mailto:sparshgupta78970@gmail.com">
@@ -58,14 +58,20 @@
             </div>
         </div>
         <div class="footer-bavfdz">
-            <div class="footer-mtfvm">
+            <div class="footer-mtfvm animate-block">
                 <div class="footer-link"><a href="/">Home</a></div>
                 <div class="footer-link"><a href="/dashboard">Dashboard</a></div>
                 <div class="footer-link"><a href="/create">Create</a></div>
                 <div class="footer-link"><a href="/developer">About developer</a></div>
             </div>
-            <div class="footer-jpinf">
-                Code by Sparsh
+            <div class="footer-jpinf animate-block">
+                <div class="footer-codeby">
+                    Code by Sparsh
+                </div>
+                <div class="footer-backtotop">
+                    <span class="material-symbols-rounded">arrow_upward</span>
+                    Back to top
+                </div>
             </div>
         </div>
     </div>
@@ -79,9 +85,16 @@
 
     <% if (script.length > 0) { %>
         <% script.forEach((scr) => { %>
-            <script src="/scripts/<%= scr %>.js"></script>
+            <script type="module" src="/scripts/<%= scr %>.js"></script>
         <% }) %>
     <% } %>
-    <script src="/scripts/primary.js"></script>
+    <script type="module" src="/scripts/primary.js"></script>
+
+    <!-- lenis scroll -->
+    <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
+    <script type="module" src="/scripts/lenisScroll.js"></script>
+
+    <!-- animation -->
+     <script type="module" src="/scripts/animate.js"></script>
 </body>
 </html>

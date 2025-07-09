@@ -47,11 +47,6 @@
     font-size: 1.5em;
 }
 
-.main2{
-    width: 100%;
-    min-height: 100vh;
-}
-
 @media screen and (max-width: 1080px) {
 
     .main1 .main1-title1{

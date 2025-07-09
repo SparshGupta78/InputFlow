@@ -1,4 +1,4 @@
-// LOADER
+// Loader
 
 let loader = document.querySelector('.loader');
 
@@ -15,6 +15,8 @@ navOpen.addEventListener('click', () => {
 
 let accountWrapper = document.querySelector('.account-wrapper')
 let accountContainer = document.querySelector('.account-container')
+
+//Account
 
 if (accountWrapper) {
     accountWrapper.addEventListener('click', (e) => {
@@ -33,12 +35,19 @@ if (accountWrapper) {
 let oneFocus = (colls) => {
     colls.forEach(coll => {
         coll.addEventListener('mouseenter', () => {
-            colls.forEach(col => col.style.color = 'var(--color-4)')
+            colls.forEach(col => {
+                col.style.color = 'var(--color-4)'
+                col.style.filter = 'blur(1px)'
+            })
             coll.style.color = 'var(--color-9)'
+            coll.style.filter = 'blur(0px)'
         })
 
         coll.addEventListener('mouseleave', () => {
-            colls.forEach(col => col.style.color = 'var(--color-9)')
+            colls.forEach(col => {
+                col.style.color = 'var(--color-9)'
+                col.style.filter = 'blur(0px)'
+            })
         })
     })
 }
@@ -48,3 +57,11 @@ oneFocus(fsmais)
 
 let footerLinks = document.querySelectorAll('.footer-link a')
 oneFocus(footerLinks)
+
+//Back to top
+
+document.querySelector('.footer-backtotop').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0
+    })
+})
