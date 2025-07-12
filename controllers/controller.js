@@ -6,7 +6,7 @@ exports.homeController = (req, res) => {
     return res.render('home', {
         title: 'InputFlow', 
         style: ['home'], 
-        script: ['landing-navbar'], 
+        script: ['landing-navbar', 'home'], 
         isLoggedIn: req.session.isLoggedIn, 
         user: req.session.user
     })

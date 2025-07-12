@@ -3,7 +3,10 @@
 let loader = document.querySelector('.loader');
 
 window.addEventListener('load', () => {
-    loader.style.display = 'none'
+    loader.classList.toggle('loader-show')
+    setTimeout(() => {
+        loader.style.display = 'none'
+    }, 500)
 })
 
 const navOpen = document.querySelector('.nav-open')

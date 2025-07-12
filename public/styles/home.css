@@ -26,51 +26,328 @@
     position: absolute;
     top: 0;
     right: 0;
-    padding: max(20px, 3.5%);
-    padding-bottom: 10vh;
     width: 100%;
     height: 100%;
+}
+
+.main1-content .main-2gvws{
+    width: 100%;
+    height: 100%;
+    padding: max(20px, 3.5%);
+    padding-bottom: max(70px, 3.5px);
     display: flex;
     justify-content: end;
-    align-items: start;
+    align-items: end;
+    gap: 20px;
+    position: relative;
+}
+
+.xy-container{
+    position: absolute;
+    top: 80px;
+    right: 10px;
+}
+
+.xy-container div{
+    width: 70px;
+    display: flex;
+    gap: 7px;
+}
+
+.xy-container div span{
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.main-vwscz, .main-vzkujh{
+    width: 50%;
+    height: fit-content;
+    display: flex;
     flex-direction: column;
-    gap: 2em;
 }
 
-.main1-content .main1-title1{
+.main-nbbzdfv{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.main-nbbzdfv .main-bwvasd{
+    font-size: 0.9em;
+    color: var(--color-3);
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+}
+
+.main-nbbzdfv a{
+    height: fit-content;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(5px);
+    border-radius: 7px 0 0 0;
+    padding: 7px 16px;
+    text-align: center;
+    display: flex;
+}
+
+.main-nbbzdfv a span{
+    color: var(--color-9);
+    font-size: 1em;
+    display: flex;
+}
+
+.main-nbbzdfv a:hover span{
+    transform: translate(0, -2px);
+}
+
+.main1-title1{
+    color: var(--color-1);
+    font-size: 2.63em;
+    line-height: 1.24em;
+    font-weight: 500;
+}
+
+.main1-title2{
     color: var(--color-2);
+    font-size: 1.06em;
+}
+
+.main2 *{
+    color: var(--color-1);
+}
+
+.main2{
+    padding: 15px;
+    background: linear-gradient(var(--color-9), var(--color-5));
+}
+
+.main2 .main-hr{
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-5);
+    margin: 30px 0;
+    border-radius: 10px;
+}
+
+.main2 .main-wnbzdf{
+    padding: 0 30px 30px 30px;
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 15px;
+    row-gap: 40px;
+}
+
+.main-mfng{
+    width: 50%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-header{
+    width: 100%;
+    font-size: 2em;
+    font-weight: 500;
+    color: var(--color-3);
+}
+
+.main-nbdf{
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.main-bnnre{
+    width: 50%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-hrbd{
+    display: flex;
+    gap: 10px;
+}
+
+.main-hrbd .main-box-count{
+    min-width: 65px;
     font-size: 3em;
+    font-weight: 800;
+    color: var(--color-7);
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
 }
 
-.main1-content .main1-title2{
-    color: var(--color-2);
-    font-size: 1.5em;
+.main-hrbd .main-mngbc{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-@media screen and (max-width: 1080px) {
-
-    .main1 .main1-title1{
-        font-size: 2.5em;
-    }
-
-    .main1 .main1-title2{
-        font-size: 1.5em;
-    }
-
+.main-hrbd .main-mngbc .main-box-header{
+    font-size: 1.3em;
 }
 
-@media screen and (max-width: 425px) {
+.main-hrbd .main-mngbc .main-box-content{
+    font-size: 0.9em;
+}
 
-    .main1-content{
-        gap: 2.5em;
+.main-hzgsv{
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    column-gap: 20px;
+    row-gap: 40px;
+}
+
+.main-mxnfbc, .main-hzgsv .main-ebdfbc{
+    width: 100%;
+    max-width: none;
+}
+
+.main-bzgrvd{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 50vw;
+}
+
+.main-hzgsv .main-heddzq{
+    width: 100%;
+    max-width: min(50vw, 600px);
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.main-hzgsv .main-heddzq .border-star-content{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+}
+
+.main-hzgsv .main-heddzq img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.main-nfgbcv{
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.main-nfgbcv .main-header, .main-nfgbcv .main-nbdf{
+    text-align: center;
+}
+
+.main-nfgbcv .main-jtrhb{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nfgbcv .main-jtrhb a{
+    text-align: center;
+    background-color: var(--color-1);
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.main-nfgbcv .main-jtrhb a span{
+    color: var(--color-9);
+}
+
+.main-nfgbcv .main-jtrhb a:hover{
+    background-color: var(--color-3);
+}
+
+@media screen and (max-width: 750px) {
+    .main1-content .main-2gvws{
+        flex-direction: column;
+        gap: 30px;
     }
 
-    .main1-content .main1-title1{
-        font-size: 1.8em;
+    .main2 .main-wnbzdf{
+        flex-direction: column;
+        padding: 0 0 30px 0;
     }
 
-    .main1-content .main1-title2{
-        font-size: 1.2rem;
+    .main-mfng{
+        width: 100%;
+        max-width: none;
+        gap: 25px;
     }
 
+    .main-vwscz, .main-vzkujh{
+        width: 100%;
+    }
+
+    .main-bnnre{
+        width: 100%;
+        max-width: none;
+    }
+
+    .main-hzgsv{
+        flex-direction: column-reverse;
+    }
+
+    .main-ntbxf{
+        flex-direction: column;
+    }
+
+    .main-hzgsv .main-heddzq{
+        width: 100%;
+        max-width: none;
+    }
+
+    .main-hzgsv .main-heddzq img{
+        max-width: 500px;
+    }
+
+    .main-bzgrvd{
+        max-width: none;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    .main1-title1{
+        font-size: 1.88em;
+        color: var(--color-2);
+    }
+
+    .main1-title2{
+        color: var(--color-3);
+    }
+
+    .main-nbbzdfv{
+        justify-content: end;
+    }
+
+    .main-nbbzdfv .main-bwvasd{
+        display: none;
+    }
+
+    .main-header{
+        font-size: 1.75em;
+    }
+
+    .main-nbdf{
+        font-size: 1em;
+    }
 }

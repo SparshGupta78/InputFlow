@@ -11,7 +11,6 @@ if (animateBlocks.length > 0) {
             })
         },
         {
-            // rootMargin: '-150px'
             threshold: 0.5
         }
     )
