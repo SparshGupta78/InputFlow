@@ -10,6 +10,102 @@
                         View responses
                     </div>
                 </div>
+                <div class="main-oihdf">
+                    <div class="main-lugjm">
+                        <div class="main-nbrae" data-field="share">
+                            <div class="main-bvsd">
+                                <span class="material-symbols-rounded">share</span>
+                                <div>
+                                    Share
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-hnjub">
+                            <div class="main-mnfg">
+                                <span class="material-symbols-rounded">link</span>
+                                Copy responder link
+                            </div>
+                            <% if (publishedStatus) { %>
+                                <div class="main-hbkmy">
+                                    
+                                </div>
+                                <button class="main-nbdf">
+                                    <span class="material-symbols-rounded">content_copy</span>
+                                    Copy link
+                                </button>
+                            <% } else { %>
+                                <div class="main-tvbijn">
+                                    <span class="material-symbols-rounded">error</span>
+                                    Publish this form to enable sharing.
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="main-lugjm">
+                        <div class="main-nbrae" data-field="publish-unpublish">
+                            <div class="main-bvsd">
+                                <% if (publishedStatus) { %>
+                                    <span class="material-symbols-rounded" style="transform: rotate(180deg);">publish</span>
+                                    <div>
+                                        Unpublish
+                                    </div>
+                                <% } else { %>
+                                    <span class="material-symbols-rounded">publish</span>
+                                    <div>
+                                        Publish
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="main-hnjub">
+                            <% if (publishedStatus) { %>
+                                <div class="main-mnfg">
+                                    Unpublish form?
+                                </div>
+                                <div class="main-tvbijn">
+                                    This form will no longer be visible to responders, but you can republish it anytime in the future.
+                                </div>
+                                <form action="/unpublish" method="get">
+                                    <input name="formId" type="hidden" value="<%= form.formId %>" />
+                                    <button type="submit"><span class="material-symbols-rounded" style="transform: rotate(180deg);">publish</span>Unpublish</button>
+                                </form>
+                            <% } else { %>
+                                <div class="main-mnfg">
+                                    Publish form?
+                                </div>
+                                <div class="main-tvbijn">
+                                    This form will be visible to responders after it is published.
+                                </div>
+                                <form action="/publish" method="get">
+                                    <input name="formId" type="hidden" value="<%= form.formId %>" />
+                                    <button type="submit"><span class="material-symbols-rounded">publish</span>Publish</button>
+                                </form>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="main-lugjm">
+                        <div class="main-nbrae" data-field="remove">
+                            <div class="main-bvsd">
+                                <span class="material-symbols-rounded">delete</span>
+                                <div>
+                                    Delete
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-hnjub">
+                            <div class="main-mnfg">
+                                Delete form?
+                            </div>
+                            <div class="main-tvbijn">
+                                This form will no longer be accessible once deleted.
+                            </div>
+                            <form action="/remove" method="get">
+                                <input name="formId" type="hidden" value="<%= form.formId %>" />
+                                <button type="submit"><span class="material-symbols-rounded">delete</span>Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         <% } %>
         <div class="main-b32wvs">

@@ -18,6 +18,44 @@ if (main_b3qa) {
     })
 }
 
+let main_nbraes = document.querySelectorAll('.main-nbrae')
+
+if (main_nbraes.length > 0) {
+    for (let main_nbrae of main_nbraes) {
+        main_nbrae.addEventListener('click', () => {
+            main_nbrae.classList.toggle('main-nbrae-active')
+            main_nbrae.nextElementSibling.classList.toggle('main-hnjub-active')
+
+            if (main_nbrae.dataset.field === 'share' && main_nbrae.nextElementSibling.querySelector('.main-hbkmy')) {
+                main_nbrae.nextElementSibling.querySelector('.main-hbkmy').innerHTML = window.location.href
+            }
+        })
+    }
+}
+
+let main_nbdf = document.querySelector('.main-nbdf')
+if (main_nbdf) {
+    main_nbdf.addEventListener('click', () => {
+        main_nbdf.disabled = true
+        main_nbdf.innerHTML = '<span class="material-symbols-rounded">check</span>Copied'
+        navigator.clipboard.writeText(document.querySelector('.main-hbkmy').innerText)
+        setTimeout(() => {
+            main_nbdf.innerHTML = '<span class="material-symbols-rounded">content_copy</span>Copy link'
+            main_nbdf.disabled = false
+        }, 3000)
+    })
+}
+
+document.addEventListener('click', e => {
+    document.querySelectorAll('.main-hnjub').forEach(popup => {
+        const toggleBtn = popup.previousElementSibling
+        if (!popup.contains(e.target) && !toggleBtn.contains(e.target)) {
+            toggleBtn.classList.remove('main-nbrae-active')
+            popup.classList.remove('main-hnjub-active')
+        }
+    })
+})
+
 let autoResizeTextareas = (textarea) => {
     textarea.addEventListener('input', () => {
         textarea.style.height = 'auto'

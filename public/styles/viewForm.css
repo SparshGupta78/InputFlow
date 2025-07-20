@@ -23,16 +23,28 @@
 }
 
 .main .main-b3qa{
-    margin-bottom: 15px;
     width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    @media screen and (max-width: 575px) {
+        justify-content: center;
+        flex-direction: column;
+    }
+    @media screen and (max-width: 345px) {
+        justify-content: end;
+    }
 }
 
 .main .main-b3qa .main-nav{
     width: fit-content;
     background-color: var(--color-2);
+    box-shadow: var(--box-shadow-1);
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -51,6 +63,185 @@
 .main .main-b3qa .main-nav .main-nav-btn.main-nav-btn-active{
     background-color: var(--color-3);
     color: var(--color-9);
+}
+
+.main-oihdf{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media screen and (max-width: 575px) {
+        width: 100%;
+        justify-content: end;
+        position: relative;
+    }
+}
+
+.main-lugjm{
+    @media screen and (min-width: 575px) {
+        position: relative;
+    }
+}
+
+.main-nbrae{
+    width: fit-content;
+    padding: 7px 10px;
+    background-color: var(--color-2);
+    box-shadow: var(--box-shadow-1);
+    border-radius: 5px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.main-nbrae.main-nbrae-active{
+    background-color: var(--color-3);
+}
+
+.main-nbrae:hover .main-bvsd{
+    transform: translate(0, -1px);
+}
+
+.main-nbrae .main-bvsd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9em;
+    color: var(--color-9);
+}
+
+.main-nbrae span{
+    font-size: 1.15em;
+    display: flex;
+    color: var(--color-5);
+}
+
+.main-nbrae .main-bvsd div{
+    @media screen and (max-width: 350px) {
+        display: none;
+    }
+}
+
+.main-hnjub{
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    width: 250px;
+    padding: 7px 8px;
+    background-color: var(--color-2);
+    border-radius: 7px;
+    box-shadow: var(--box-shadow-1);
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 5px;
+    z-index: 99;
+    opacity: 0;
+    display: none;
+    @media screen and (max-width: 345px) {
+        width: calc(100vw - 30px);
+    }
+}
+
+.main-hnjub.main-hnjub-active{
+    opacity: 1;
+    display: flex;
+}
+
+.main-hnjub .main-mnfg{
+    width: 100%;
+    font-size: 0.9em;
+    color: var(--color-7);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.main-hnjub .main-mnfg span{
+    font-size: 1.15em;
+    color: var(--color-5);
+}
+
+.main-hnjub .main-hbkmy{
+    width: 100%;
+    background-color: var(--color-1);
+    padding: 4px 5px;
+    font-size: 0.85em;
+    color: var(--color-6);
+    white-space: nowrap;
+    border-radius: 3px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    user-select: all;
+}
+
+.main-hnjub .main-nbdf{
+    width: fit-content;
+    background-color: transparent;
+    border: none;
+    font-size: 0.9em;
+    padding: 3px 6px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 4px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.main-hnjub .main-nbdf:enabled:hover{
+    background-color: var(--color-3);
+}
+
+.main-hnjub .main-nbdf span{
+    font-size: 1.15em;
+    color: var(--color-5);
+}
+
+.main-hnjub form{
+    width: 100%;
+}
+
+.main-hnjub .main-tvbijn{
+    width: 100%;
+    font-size: 0.8em;
+    background-color: var(--color-3);
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.main-hnjub .main-tvbijn span{
+    padding: 0 3px;
+    font-size: 1.5em;
+    color: var(--color-5);
+}
+
+.main-hnjub form button{
+    width: 100%;
+    margin-top: 5px;
+    padding: 6px 10px;
+    font-size: 0.9em;
+    background-color: var(--color-1);
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.main-hnjub form button:hover{
+    background-color: var(--color-3);
+}
+
+.main-hnjub form button span{
+    font-size: 1.15em;
+    color: var(--color-5);
 }
 
 /*main-b32wvs*/
