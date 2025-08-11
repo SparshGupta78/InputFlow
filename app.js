@@ -1,5 +1,6 @@
 //External modules
 const express = require('express')
+const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const session = require('express-session')
 const mongoDBStore = require('connect-mongodb-session')(session)
@@ -12,8 +13,7 @@ const rootDir = require('./Utils/pathUtil');
 const router = require('./routers/router')
 const authRouter = require('./routers/authRouter')
 
-const DBname = 'InputFlow'
-const DBpath = `mongodb+srv://sparshgupta78970:Guptaramji@sparshcluster.da50z.mongodb.net/${DBname}?retryWrites=true&w=majority&appName=SparshCluster`
+dotenv.config()
 
 const server = express()
 
@@ -21,7 +21,7 @@ server.set('view engine', 'ejs')
 server.set('views', 'views')
 
 const store = new mongoDBStore({
-    uri: DBpath,
+    uri: process.env.DB_PATH,
     collection: 'sessions'
 })
 
@@ -40,14 +40,12 @@ server.use(session({
 server.use(authRouter)
 server.use(router)
 
-const port = 3000
-
 try{
     mongoose
-    .connect(DBpath)
+    .connect(process.env.DB_PATH)
     .then(() => {
-        server.listen(port, () => {
-            console.log(`Server listening at http://localhost:${port}`)
+        server.listen(process.env.PORT, () => {
+            console.log(`Server listening at http://localhost:${process.env.PORT}`)
         })
     })
     .catch(() => {
